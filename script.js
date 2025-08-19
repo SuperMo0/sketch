@@ -15,13 +15,15 @@ function build(current_size) {
     box.style['height'] = cell_height + 'px';
     box.style['border'] = '1px solid black';
     box.style['box-sizing'] = 'border-box';
-    grid.addEventListener("mouseover", function (e) {
+    box.style['opacity'] = 0.5;
+    grid.addEventListener("mousemove", function (e) {
         if (e.target.className == 'container' || e.buttons != 1) return;
-        let colors = ['red', 'green', 'blue'];
+        let colors = ['red', 'green', 'blue', 'black'];
         let rnd = Math.floor(Math.random() * 3);
-        console.log(rnd);
-
-        e.target.style['background-color'] = colors[rnd];
+        // console.log(rnd);
+        e.target.style['background-color'] = colors[3];
+        let crnt = e.target.style['opacity'];
+        e.target.style['opacity'] = (crnt * 100 + 20) / 100;
     });
     for (let i = 0; i < current_size * current_size; i++) {
         let new_box = box.cloneNode();
