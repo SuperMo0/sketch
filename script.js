@@ -16,7 +16,12 @@ function build(current_size) {
     box.style['border'] = '1px solid black';
     box.style['box-sizing'] = 'border-box';
     grid.addEventListener("mouseover", function (e) {
-        if (e.target.className == 'container' || e.buttons != 1) return; e.target.style['background-color'] = 'black';
+        if (e.target.className == 'container' || e.buttons != 1) return;
+        let colors = ['red', 'green', 'blue'];
+        let rnd = Math.floor(Math.random() * 3);
+        console.log(rnd);
+
+        e.target.style['background-color'] = colors[rnd];
     });
     for (let i = 0; i < current_size * current_size; i++) {
         let new_box = box.cloneNode();
@@ -41,7 +46,7 @@ function take_size() {
 }
 
 change.addEventListener("click", take_size);
-build(70);
+build(40);
 
 
 
